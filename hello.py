@@ -20,14 +20,15 @@ async def read_root(request: Request):
 
 @app.get('/table', response_class=HTMLResponse)
 async def table():
-    data = pd.read_csv('db/data.csv')
+    data = pd.read_csv('db/purged/data.csv')
     return data.to_html()
 
 
 @app.get("/data")
 def data():
-    data = pd.read_csv('db/data.csv')
+    data = pd.read_csv('db/purged/data.csv')
     return data.fillna("").to_dict(orient="records")
+
 
 @app.get("/pw", response_class=HTMLResponse)
 async def pw(request: Request):
@@ -38,7 +39,6 @@ async def pw(request: Request):
 
     # 返回模板，并将 walker_html 传入模板上下文
     return templates.TemplateResponse("walker.html", {"request": request, "walker_html": walker_html})
-
 
 
 # router

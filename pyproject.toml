@@ -11,6 +11,7 @@ dependencies = [
     "numpy>=2.1.2",
     "pandas>=2.2.3",
     "pygwalker>=0.4.8.9",
+    "rav>=0.0.9",
     "seaborn>=0.13.2",
     "uvicorn>=0.32.0",
 ]
